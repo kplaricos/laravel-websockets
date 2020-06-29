@@ -1,9 +1,9 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Tests\Statistics\Rules;
+namespace Kplaricos\LaravelWebSockets\Tests\Statistics\Rules;
 
-use BeyondCode\LaravelWebSockets\Statistics\Rules\AppId;
-use BeyondCode\LaravelWebSockets\Tests\TestCase;
+use Kplaricos\LaravelWebSockets\Statistics\Rules\AppId;
+use Kplaricos\LaravelWebSockets\Tests\TestCase;
 
 class AppIdTest extends TestCase
 {

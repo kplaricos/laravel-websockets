@@ -1,11 +1,11 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManagers;
+namespace Kplaricos\LaravelWebSockets\WebSockets\Channels\ChannelManagers;
 
-use BeyondCode\LaravelWebSockets\WebSockets\Channels\Channel;
-use BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager;
-use BeyondCode\LaravelWebSockets\WebSockets\Channels\PresenceChannel;
-use BeyondCode\LaravelWebSockets\WebSockets\Channels\PrivateChannel;
+use Kplaricos\LaravelWebSockets\WebSockets\Channels\Channel;
+use Kplaricos\LaravelWebSockets\WebSockets\Channels\ChannelManager;
+use Kplaricos\LaravelWebSockets\WebSockets\Channels\PresenceChannel;
+use Kplaricos\LaravelWebSockets\WebSockets\Channels\PrivateChannel;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Ratchet\ConnectionInterface;
@@ -20,7 +20,7 @@ class ArrayChannelManager implements ChannelManager
 
     public function findOrCreate(string $appId, string $channelName): Channel
     {
-        if (! isset($this->channels[$appId][$channelName])) {
+        if (!isset($this->channels[$appId][$channelName])) {
             $channelClass = $this->determineChannelClass($channelName);
 
             $this->channels[$appId][$channelName] = new $channelClass($channelName);
@@ -64,7 +64,7 @@ class ArrayChannelManager implements ChannelManager
 
     public function removeFromAllChannels(ConnectionInterface $connection)
     {
-        if (! isset($connection->app)) {
+        if (!isset($connection->app)) {
             return;
         }
 
@@ -78,9 +78,9 @@ class ArrayChannelManager implements ChannelManager
          */
         collect(Arr::get($this->channels, $connection->app->id, []))
             ->reject->hasConnections()
-                    ->each(function (Channel $channel, string $channelName) use ($connection) {
-                        unset($this->channels[$connection->app->id][$channelName]);
-                    });
+            ->each(function (Channel $channel, string $channelName) use ($connection) {
+                unset($this->channels[$connection->app->id][$channelName]);
+            });
 
         if (count(Arr::get($this->channels, $connection->app->id, [])) === 0) {
             unset($this->channels[$connection->app->id]);

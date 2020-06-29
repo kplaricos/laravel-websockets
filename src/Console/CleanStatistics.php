@@ -1,6 +1,6 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Console;
+namespace Kplaricos\LaravelWebSockets\Console;
 
 use Carbon\Carbon;
 use Illuminate\Console\Command;
@@ -26,7 +26,7 @@ class CleanStatistics extends Command
         $webSocketsStatisticsEntryModelClass = config('websockets.statistics.model');
 
         $amountDeleted = $webSocketsStatisticsEntryModelClass::where('created_at', '<', $cutOffDate)
-            ->when(! is_null($appId), function (Builder $query) use ($appId) {
+            ->when(!is_null($appId), function (Builder $query) use ($appId) {
                 $query->where('app_id', $appId);
             })
             ->delete();

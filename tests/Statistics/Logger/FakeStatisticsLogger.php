@@ -1,8 +1,8 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Tests\Statistics\Logger;
+namespace Kplaricos\LaravelWebSockets\Tests\Statistics\Logger;
 
-use BeyondCode\LaravelWebSockets\Statistics\Logger\HttpStatisticsLogger;
+use Kplaricos\LaravelWebSockets\Statistics\Logger\HttpStatisticsLogger;
 
 class FakeStatisticsLogger extends HttpStatisticsLogger
 {

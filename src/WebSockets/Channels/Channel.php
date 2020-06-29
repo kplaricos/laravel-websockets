@@ -1,9 +1,9 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\WebSockets\Channels;
+namespace Kplaricos\LaravelWebSockets\WebSockets\Channels;
 
-use BeyondCode\LaravelWebSockets\Dashboard\DashboardLogger;
-use BeyondCode\LaravelWebSockets\WebSockets\Exceptions\InvalidSignature;
+use Kplaricos\LaravelWebSockets\Dashboard\DashboardLogger;
+use Kplaricos\LaravelWebSockets\WebSockets\Exceptions\InvalidSignature;
 use Illuminate\Support\Str;
 use Ratchet\ConnectionInterface;
 use stdClass;
@@ -61,7 +61,7 @@ class Channel
     {
         unset($this->subscribedConnections[$connection->socketId]);
 
-        if (! $this->hasConnections()) {
+        if (!$this->hasConnections()) {
             DashboardLogger::vacated($connection, $this->channelName);
         }
     }
@@ -72,7 +72,7 @@ class Channel
 
         $this->subscribedConnections[$connection->socketId] = $connection;
 
-        if (! $hadConnectionsPreviously) {
+        if (!$hadConnectionsPreviously) {
             DashboardLogger::occupied($connection, $this->channelName);
         }
 

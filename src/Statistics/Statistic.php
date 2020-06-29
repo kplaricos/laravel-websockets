@@ -1,8 +1,8 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Statistics;
+namespace Kplaricos\LaravelWebSockets\Statistics;
 
-use BeyondCode\LaravelWebSockets\Apps\App;
+use Kplaricos\LaravelWebSockets\Apps\App;
 
 class Statistic
 {

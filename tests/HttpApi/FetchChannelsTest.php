@@ -1,10 +1,10 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Tests\HttpApi;
+namespace Kplaricos\LaravelWebSockets\Tests\HttpApi;
 
-use BeyondCode\LaravelWebSockets\HttpApi\Controllers\FetchChannelsController;
-use BeyondCode\LaravelWebSockets\Tests\Mocks\Connection;
-use BeyondCode\LaravelWebSockets\Tests\TestCase;
+use Kplaricos\LaravelWebSockets\HttpApi\Controllers\FetchChannelsController;
+use Kplaricos\LaravelWebSockets\Tests\Mocks\Connection;
+use Kplaricos\LaravelWebSockets\Tests\TestCase;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\JsonResponse;
 use Pusher\Pusher;
@@ -27,7 +27,7 @@ class FetchChannelsTest extends TestCase
 
         $queryString = Pusher::build_auth_query_string('TestKey', 'InvalidSecret', 'GET', $requestPath);
 
-        $request = new Request('GET', "{$requestPath}?{$queryString}&".http_build_query($routeParams));
+        $request = new Request('GET', "{$requestPath}?{$queryString}&" . http_build_query($routeParams));
 
         $controller = app(FetchChannelsController::class);
 
@@ -48,7 +48,7 @@ class FetchChannelsTest extends TestCase
 
         $queryString = Pusher::build_auth_query_string('TestKey', 'TestSecret', 'GET', $requestPath);
 
-        $request = new Request('GET', "{$requestPath}?{$queryString}&".http_build_query($routeParams));
+        $request = new Request('GET', "{$requestPath}?{$queryString}&" . http_build_query($routeParams));
 
         $controller = app(FetchChannelsController::class);
 
@@ -83,7 +83,7 @@ class FetchChannelsTest extends TestCase
             'filter_by_prefix' => 'presence-global',
         ]);
 
-        $request = new Request('GET', "{$requestPath}?{$queryString}&".http_build_query($routeParams));
+        $request = new Request('GET', "{$requestPath}?{$queryString}&" . http_build_query($routeParams));
 
         $controller = app(FetchChannelsController::class);
 
@@ -120,7 +120,7 @@ class FetchChannelsTest extends TestCase
             'info' => 'user_count',
         ]);
 
-        $request = new Request('GET', "{$requestPath}?{$queryString}&".http_build_query($routeParams));
+        $request = new Request('GET', "{$requestPath}?{$queryString}&" . http_build_query($routeParams));
 
         $controller = app(FetchChannelsController::class);
 
@@ -158,7 +158,7 @@ class FetchChannelsTest extends TestCase
             'info' => 'user_count',
         ]);
 
-        $request = new Request('GET', "{$requestPath}?{$queryString}&".http_build_query($routeParams));
+        $request = new Request('GET', "{$requestPath}?{$queryString}&" . http_build_query($routeParams));
 
         $controller = app(FetchChannelsController::class);
 
@@ -180,7 +180,7 @@ class FetchChannelsTest extends TestCase
 
         $queryString = Pusher::build_auth_query_string('TestKey', 'TestSecret', 'GET', $requestPath);
 
-        $request = new Request('GET', "{$requestPath}?{$queryString}&".http_build_query($routeParams));
+        $request = new Request('GET', "{$requestPath}?{$queryString}&" . http_build_query($routeParams));
 
         $controller = app(FetchChannelsController::class);
 

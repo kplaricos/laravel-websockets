@@ -1,10 +1,10 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Tests\Statistics\Controllers;
+namespace Kplaricos\LaravelWebSockets\Tests\Statistics\Controllers;
 
-use BeyondCode\LaravelWebSockets\Statistics\Http\Controllers\WebSocketStatisticsEntriesController;
-use BeyondCode\LaravelWebSockets\Statistics\Models\WebSocketsStatisticsEntry;
-use BeyondCode\LaravelWebSockets\Tests\TestCase;
+use Kplaricos\LaravelWebSockets\Statistics\Http\Controllers\WebSocketStatisticsEntriesController;
+use Kplaricos\LaravelWebSockets\Statistics\Models\WebSocketsStatisticsEntry;
+use Kplaricos\LaravelWebSockets\Tests\TestCase;
 
 class WebSocketsStatisticsControllerTest extends TestCase
 {

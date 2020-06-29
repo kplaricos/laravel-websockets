@@ -1,6 +1,6 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Server;
+namespace Kplaricos\LaravelWebSockets\Server;
 
 use Ratchet\Http\HttpServerInterface;
 
