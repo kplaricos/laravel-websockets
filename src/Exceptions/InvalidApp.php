@@ -1,6 +1,6 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Exceptions;
+namespace Kplaricos\LaravelWebSockets\Exceptions;
 
 use Exception;
 use Facade\IgnitionContracts\BaseSolution;

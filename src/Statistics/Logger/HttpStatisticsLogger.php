@@ -1,21 +1,21 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Statistics\Logger;
+namespace Kplaricos\LaravelWebSockets\Statistics\Logger;
 
-use BeyondCode\LaravelWebSockets\Apps\App;
-use BeyondCode\LaravelWebSockets\Statistics\Http\Controllers\WebSocketStatisticsEntriesController;
-use BeyondCode\LaravelWebSockets\Statistics\Statistic;
-use BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager;
+use Kplaricos\LaravelWebSockets\Apps\App;
+use Kplaricos\LaravelWebSockets\Statistics\Http\Controllers\WebSocketStatisticsEntriesController;
+use Kplaricos\LaravelWebSockets\Statistics\Statistic;
+use Kplaricos\LaravelWebSockets\WebSockets\Channels\ChannelManager;
 use Clue\React\Buzz\Browser;
 use function GuzzleHttp\Psr7\stream_for;
 use Ratchet\ConnectionInterface;
 
 class HttpStatisticsLogger implements StatisticsLogger
 {
-    /** @var \BeyondCode\LaravelWebSockets\Statistics\Statistic[] */
+    /** @var \Kplaricos\LaravelWebSockets\Statistics\Statistic[] */
     protected $statistics = [];
 
-    /** @var \BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager */
+    /** @var \Kplaricos\LaravelWebSockets\WebSockets\Channels\ChannelManager */
     protected $channelManager;
 
     /** @var \Clue\React\Buzz\Browser */
@@ -58,7 +58,7 @@ class HttpStatisticsLogger implements StatisticsLogger
 
     protected function findOrMakeStatisticForAppId($appId): Statistic
     {
-        if (! isset($this->statistics[$appId])) {
+        if (!isset($this->statistics[$appId])) {
             $this->statistics[$appId] = new Statistic($appId);
         }
 
@@ -68,7 +68,7 @@ class HttpStatisticsLogger implements StatisticsLogger
     public function save()
     {
         foreach ($this->statistics as $appId => $statistic) {
-            if (! $statistic->isEnabled()) {
+            if (!$statistic->isEnabled()) {
                 continue;
             }
 

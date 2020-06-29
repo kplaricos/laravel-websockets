@@ -1,10 +1,10 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\HttpApi\Controllers;
+namespace Kplaricos\LaravelWebSockets\HttpApi\Controllers;
 
-use BeyondCode\LaravelWebSockets\Apps\App;
-use BeyondCode\LaravelWebSockets\QueryParameters;
-use BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager;
+use Kplaricos\LaravelWebSockets\Apps\App;
+use Kplaricos\LaravelWebSockets\QueryParameters;
+use Kplaricos\LaravelWebSockets\WebSockets\Channels\ChannelManager;
 use Exception;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\ServerRequest;
@@ -30,7 +30,7 @@ abstract class Controller implements HttpServerInterface
     /** @var int */
     protected $contentLength;
 
-    /** @var \BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager */
+    /** @var \Kplaricos\LaravelWebSockets\WebSockets\Channels\ChannelManager */
     protected $channelManager;
 
     public function __construct(ChannelManager $channelManager)
@@ -93,7 +93,7 @@ abstract class Controller implements HttpServerInterface
 
     public function onError(ConnectionInterface $connection, Exception $exception)
     {
-        if (! $exception instanceof HttpException) {
+        if (!$exception instanceof HttpException) {
             return;
         }
 
@@ -110,7 +110,7 @@ abstract class Controller implements HttpServerInterface
 
     public function ensureValidAppId(string $appId)
     {
-        if (! App::findById($appId)) {
+        if (!App::findById($appId)) {
             throw new HttpException(401, "Unknown app id `{$appId}` provided.");
         }
 
@@ -132,7 +132,7 @@ abstract class Controller implements HttpServerInterface
 
         ksort($params);
 
-        $signature = "{$request->getMethod()}\n/{$request->path()}\n".Pusher::array_implode('=', '&', $params);
+        $signature = "{$request->getMethod()}\n/{$request->path()}\n" . Pusher::array_implode('=', '&', $params);
 
         $authSignature = hash_hmac('sha256', $signature, App::findById($request->get('appId'))->secret);
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Dashboard\Http\Controllers;
+namespace Kplaricos\LaravelWebSockets\Dashboard\Http\Controllers;
 
-use BeyondCode\LaravelWebSockets\Statistics\Rules\AppId;
+use Kplaricos\LaravelWebSockets\Statistics\Rules\AppId;
 use Illuminate\Broadcasting\Broadcasters\PusherBroadcaster;
 use Illuminate\Http\Request;
 use Pusher\Pusher;

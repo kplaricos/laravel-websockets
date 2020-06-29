@@ -1,6 +1,6 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Server;
+namespace Kplaricos\LaravelWebSockets\Server;
 
 use Psr\Http\Message\RequestInterface;
 use Ratchet\ConnectionInterface;
@@ -53,7 +53,7 @@ class OriginCheck implements HttpServerInterface
         $header = (string) $request->getHeader('Origin')[0];
         $origin = parse_url($header, PHP_URL_HOST) ?: $header;
 
-        if (! empty($this->allowedOrigins) && ! in_array($origin, $this->allowedOrigins)) {
+        if (!empty($this->allowedOrigins) && !in_array($origin, $this->allowedOrigins)) {
             return $this->close($connection, 403);
         }
     }

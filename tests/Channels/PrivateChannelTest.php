@@ -1,10 +1,10 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Tests\Channels;
+namespace Kplaricos\LaravelWebSockets\Tests\Channels;
 
-use BeyondCode\LaravelWebSockets\Tests\Mocks\Message;
-use BeyondCode\LaravelWebSockets\Tests\TestCase;
-use BeyondCode\LaravelWebSockets\WebSockets\Exceptions\InvalidSignature;
+use Kplaricos\LaravelWebSockets\Tests\Mocks\Message;
+use Kplaricos\LaravelWebSockets\Tests\TestCase;
+use Kplaricos\LaravelWebSockets\WebSockets\Exceptions\InvalidSignature;
 
 class PrivateChannelTest extends TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\HttpApi\Controllers;
+namespace Kplaricos\LaravelWebSockets\HttpApi\Controllers;
 
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\HttpException;

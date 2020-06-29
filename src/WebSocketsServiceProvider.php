@@ -1,18 +1,18 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets;
+namespace Kplaricos\LaravelWebSockets;
 
-use BeyondCode\LaravelWebSockets\Apps\AppProvider;
-use BeyondCode\LaravelWebSockets\Dashboard\Http\Controllers\AuthenticateDashboard;
-use BeyondCode\LaravelWebSockets\Dashboard\Http\Controllers\DashboardApiController;
-use BeyondCode\LaravelWebSockets\Dashboard\Http\Controllers\SendMessage;
-use BeyondCode\LaravelWebSockets\Dashboard\Http\Controllers\ShowDashboard;
-use BeyondCode\LaravelWebSockets\Dashboard\Http\Middleware\Authorize as AuthorizeDashboard;
-use BeyondCode\LaravelWebSockets\Server\Router;
-use BeyondCode\LaravelWebSockets\Statistics\Http\Controllers\WebSocketStatisticsEntriesController;
-use BeyondCode\LaravelWebSockets\Statistics\Http\Middleware\Authorize as AuthorizeStatistics;
-use BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager;
-use BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManagers\ArrayChannelManager;
+use Kplaricos\LaravelWebSockets\Apps\AppProvider;
+use Kplaricos\LaravelWebSockets\Dashboard\Http\Controllers\AuthenticateDashboard;
+use Kplaricos\LaravelWebSockets\Dashboard\Http\Controllers\DashboardApiController;
+use Kplaricos\LaravelWebSockets\Dashboard\Http\Controllers\SendMessage;
+use Kplaricos\LaravelWebSockets\Dashboard\Http\Controllers\ShowDashboard;
+use Kplaricos\LaravelWebSockets\Dashboard\Http\Middleware\Authorize as AuthorizeDashboard;
+use Kplaricos\LaravelWebSockets\Server\Router;
+use Kplaricos\LaravelWebSockets\Statistics\Http\Controllers\WebSocketStatisticsEntriesController;
+use Kplaricos\LaravelWebSockets\Statistics\Http\Middleware\Authorize as AuthorizeStatistics;
+use Kplaricos\LaravelWebSockets\WebSockets\Channels\ChannelManager;
+use Kplaricos\LaravelWebSockets\WebSockets\Channels\ChannelManagers\ArrayChannelManager;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -22,12 +22,12 @@ class WebSocketsServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/websockets.php' => base_path('config/websockets.php'),
+            __DIR__ . '/../config/websockets.php' => base_path('config/websockets.php'),
         ], 'config');
 
-        if (! class_exists('CreateWebSocketsStatisticsEntries')) {
+        if (!class_exists('CreateWebSocketsStatisticsEntries')) {
             $this->publishes([
-                __DIR__.'/../database/migrations/create_websockets_statistics_entries_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_websockets_statistics_entries_table.php'),
+                __DIR__ . '/../database/migrations/create_websockets_statistics_entries_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_websockets_statistics_entries_table.php'),
             ], 'migrations');
         }
 
@@ -35,7 +35,7 @@ class WebSocketsServiceProvider extends ServiceProvider
             ->registerRoutes()
             ->registerDashboardGate();
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views/', 'websockets');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views/', 'websockets');
 
         $this->commands([
             Console\StartWebSocketServer::class,
@@ -45,7 +45,7 @@ class WebSocketsServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/websockets.php', 'websockets');
+        $this->mergeConfigFrom(__DIR__ . '/../config/websockets.php', 'websockets');
 
         $this->app->singleton('websockets.router', function () {
             return new Router();

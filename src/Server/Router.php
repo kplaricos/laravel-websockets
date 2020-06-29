@@ -1,14 +1,14 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Server;
+namespace Kplaricos\LaravelWebSockets\Server;
 
-use BeyondCode\LaravelWebSockets\Exceptions\InvalidWebSocketController;
-use BeyondCode\LaravelWebSockets\HttpApi\Controllers\FetchChannelController;
-use BeyondCode\LaravelWebSockets\HttpApi\Controllers\FetchChannelsController;
-use BeyondCode\LaravelWebSockets\HttpApi\Controllers\FetchUsersController;
-use BeyondCode\LaravelWebSockets\HttpApi\Controllers\TriggerEventController;
-use BeyondCode\LaravelWebSockets\Server\Logger\WebsocketsLogger;
-use BeyondCode\LaravelWebSockets\WebSockets\WebSocketHandler;
+use Kplaricos\LaravelWebSockets\Exceptions\InvalidWebSocketController;
+use Kplaricos\LaravelWebSockets\HttpApi\Controllers\FetchChannelController;
+use Kplaricos\LaravelWebSockets\HttpApi\Controllers\FetchChannelsController;
+use Kplaricos\LaravelWebSockets\HttpApi\Controllers\FetchUsersController;
+use Kplaricos\LaravelWebSockets\HttpApi\Controllers\TriggerEventController;
+use Kplaricos\LaravelWebSockets\Server\Logger\WebsocketsLogger;
+use Kplaricos\LaravelWebSockets\WebSockets\WebSocketHandler;
 use Illuminate\Support\Collection;
 use Ratchet\WebSocket\MessageComponentInterface;
 use Ratchet\WebSocket\WsServer;
@@ -76,7 +76,7 @@ class Router
 
     public function webSocket(string $uri, $action)
     {
-        if (! is_subclass_of($action, MessageComponentInterface::class)) {
+        if (!is_subclass_of($action, MessageComponentInterface::class)) {
             throw InvalidWebSocketController::withController($action);
         }
 

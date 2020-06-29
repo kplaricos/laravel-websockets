@@ -1,9 +1,9 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Tests\Channels;
+namespace Kplaricos\LaravelWebSockets\Tests\Channels;
 
-use BeyondCode\LaravelWebSockets\Tests\Mocks\Message;
-use BeyondCode\LaravelWebSockets\Tests\TestCase;
+use Kplaricos\LaravelWebSockets\Tests\Mocks\Message;
+use Kplaricos\LaravelWebSockets\Tests\TestCase;
 
 class ChannelTest extends TestCase
 {
@@ -143,6 +143,8 @@ class ChannelTest extends TestCase
 
         $this->pusherServer->onMessage($connection, $message);
 
-        $connection->assertSentEvent('pusher:pong');
+        $connection->assertSentEvent(
+            'pusher:pong',
+        );
     }
 }

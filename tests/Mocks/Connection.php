@@ -1,6 +1,6 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Tests\Mocks;
+namespace Kplaricos\LaravelWebSockets\Tests\Mocks;
 
 use GuzzleHttp\Psr7\Request;
 use PHPUnit\Framework\Assert as PHPUnit;
@@ -33,7 +33,7 @@ class Connection implements ConnectionInterface
         $event = collect($this->sentData)->firstWhere('event', '=', $name);
 
         PHPUnit::assertTrue(
-            ! is_null($event)
+            !is_null($event)
         );
 
         foreach ($additionalParameters as $parameter => $value) {

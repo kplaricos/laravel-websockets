@@ -1,16 +1,16 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\WebSockets;
+namespace Kplaricos\LaravelWebSockets\WebSockets;
 
-use BeyondCode\LaravelWebSockets\Apps\App;
-use BeyondCode\LaravelWebSockets\Dashboard\DashboardLogger;
-use BeyondCode\LaravelWebSockets\Facades\StatisticsLogger;
-use BeyondCode\LaravelWebSockets\QueryParameters;
-use BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager;
-use BeyondCode\LaravelWebSockets\WebSockets\Exceptions\ConnectionsOverCapacity;
-use BeyondCode\LaravelWebSockets\WebSockets\Exceptions\UnknownAppKey;
-use BeyondCode\LaravelWebSockets\WebSockets\Exceptions\WebSocketException;
-use BeyondCode\LaravelWebSockets\WebSockets\Messages\PusherMessageFactory;
+use Kplaricos\LaravelWebSockets\Apps\App;
+use Kplaricos\LaravelWebSockets\Dashboard\DashboardLogger;
+use Kplaricos\LaravelWebSockets\Facades\StatisticsLogger;
+use Kplaricos\LaravelWebSockets\QueryParameters;
+use Kplaricos\LaravelWebSockets\WebSockets\Channels\ChannelManager;
+use Kplaricos\LaravelWebSockets\WebSockets\Exceptions\ConnectionsOverCapacity;
+use Kplaricos\LaravelWebSockets\WebSockets\Exceptions\UnknownAppKey;
+use Kplaricos\LaravelWebSockets\WebSockets\Exceptions\WebSocketException;
+use Kplaricos\LaravelWebSockets\WebSockets\Messages\PusherMessageFactory;
 use Exception;
 use Ratchet\ConnectionInterface;
 use Ratchet\RFC6455\Messaging\MessageInterface;
@@ -18,7 +18,7 @@ use Ratchet\WebSocket\MessageComponentInterface;
 
 class WebSocketHandler implements MessageComponentInterface
 {
-    /** @var \BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager */
+    /** @var \Kplaricos\LaravelWebSockets\WebSockets\Channels\ChannelManager */
     protected $channelManager;
 
     public function __construct(ChannelManager $channelManager)
@@ -66,7 +66,7 @@ class WebSocketHandler implements MessageComponentInterface
     {
         $appKey = QueryParameters::create($connection->httpRequest)->get('appKey');
 
-        if (! $app = App::findByKey($appKey)) {
+        if (!$app = App::findByKey($appKey)) {
             throw new UnknownAppKey($appKey);
         }
 
@@ -77,7 +77,7 @@ class WebSocketHandler implements MessageComponentInterface
 
     protected function limitConcurrentConnections(ConnectionInterface $connection)
     {
-        if (! is_null($capacity = $connection->app->capacity)) {
+        if (!is_null($capacity = $connection->app->capacity)) {
             $connectionsCount = $this->channelManager->getConnectionCount($connection->app->id);
             if ($connectionsCount >= $capacity) {
                 throw new ConnectionsOverCapacity();

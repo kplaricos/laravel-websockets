@@ -1,8 +1,8 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\WebSockets\Messages;
+namespace Kplaricos\LaravelWebSockets\WebSockets\Messages;
 
-use BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager;
+use Kplaricos\LaravelWebSockets\WebSockets\Channels\ChannelManager;
 use Illuminate\Support\Str;
 use Ratchet\ConnectionInterface;
 use stdClass;
@@ -15,7 +15,7 @@ class PusherChannelProtocolMessage implements PusherMessage
     /** @var \React\Socket\ConnectionInterface */
     protected $connection;
 
-    /** @var \BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager */
+    /** @var \Kplaricos\LaravelWebSockets\WebSockets\Channels\ChannelManager */
     protected $channelManager;
 
     public function __construct(stdClass $payload, ConnectionInterface $connection, ChannelManager $channelManager)
@@ -43,6 +43,9 @@ class PusherChannelProtocolMessage implements PusherMessage
     {
         $connection->send(json_encode([
             'event' => 'pusher:pong',
+            'data' => [
+                'datetime' => \now()
+            ]
         ]));
     }
 

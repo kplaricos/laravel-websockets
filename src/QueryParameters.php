@@ -1,6 +1,6 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets;
+namespace Kplaricos\LaravelWebSockets;
 
 use Psr\Http\Message\RequestInterface;
 

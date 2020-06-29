@@ -1,10 +1,10 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Tests\HttpApi;
+namespace Kplaricos\LaravelWebSockets\Tests\HttpApi;
 
-use BeyondCode\LaravelWebSockets\HttpApi\Controllers\FetchUsersController;
-use BeyondCode\LaravelWebSockets\Tests\Mocks\Connection;
-use BeyondCode\LaravelWebSockets\Tests\TestCase;
+use Kplaricos\LaravelWebSockets\HttpApi\Controllers\FetchUsersController;
+use Kplaricos\LaravelWebSockets\Tests\Mocks\Connection;
+use Kplaricos\LaravelWebSockets\Tests\TestCase;
 use GuzzleHttp\Psr7\Request;
 use Pusher\Pusher;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -27,7 +27,7 @@ class FetchUsersTest extends TestCase
 
         $queryString = Pusher::build_auth_query_string('TestKey', 'InvalidSecret', 'GET', $requestPath);
 
-        $request = new Request('GET', "{$requestPath}?{$queryString}&".http_build_query($routeParams));
+        $request = new Request('GET', "{$requestPath}?{$queryString}&" . http_build_query($routeParams));
 
         $controller = app(FetchUsersController::class);
 
@@ -52,7 +52,7 @@ class FetchUsersTest extends TestCase
 
         $queryString = Pusher::build_auth_query_string('TestKey', 'TestSecret', 'GET', $requestPath);
 
-        $request = new Request('GET', "{$requestPath}?{$queryString}&".http_build_query($routeParams));
+        $request = new Request('GET', "{$requestPath}?{$queryString}&" . http_build_query($routeParams));
 
         $controller = app(FetchUsersController::class);
 
@@ -77,7 +77,7 @@ class FetchUsersTest extends TestCase
 
         $queryString = Pusher::build_auth_query_string('TestKey', 'TestSecret', 'GET', $requestPath);
 
-        $request = new Request('GET', "{$requestPath}?{$queryString}&".http_build_query($routeParams));
+        $request = new Request('GET', "{$requestPath}?{$queryString}&" . http_build_query($routeParams));
 
         $controller = app(FetchUsersController::class);
 
@@ -99,7 +99,7 @@ class FetchUsersTest extends TestCase
 
         $queryString = Pusher::build_auth_query_string('TestKey', 'TestSecret', 'GET', $requestPath);
 
-        $request = new Request('GET', "{$requestPath}?{$queryString}&".http_build_query($routeParams));
+        $request = new Request('GET', "{$requestPath}?{$queryString}&" . http_build_query($routeParams));
 
         $controller = app(FetchUsersController::class);
 

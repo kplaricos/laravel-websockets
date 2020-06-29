@@ -1,14 +1,14 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Tests;
+namespace Kplaricos\LaravelWebSockets\Tests;
 
-use BeyondCode\LaravelWebSockets\Facades\StatisticsLogger;
-use BeyondCode\LaravelWebSockets\Tests\Mocks\Connection;
-use BeyondCode\LaravelWebSockets\Tests\Mocks\Message;
-use BeyondCode\LaravelWebSockets\Tests\Statistics\Logger\FakeStatisticsLogger;
-use BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager;
-use BeyondCode\LaravelWebSockets\WebSockets\WebSocketHandler;
-use BeyondCode\LaravelWebSockets\WebSocketsServiceProvider;
+use Kplaricos\LaravelWebSockets\Facades\StatisticsLogger;
+use Kplaricos\LaravelWebSockets\Tests\Mocks\Connection;
+use Kplaricos\LaravelWebSockets\Tests\Mocks\Message;
+use Kplaricos\LaravelWebSockets\Tests\Statistics\Logger\FakeStatisticsLogger;
+use Kplaricos\LaravelWebSockets\WebSockets\Channels\ChannelManager;
+use Kplaricos\LaravelWebSockets\WebSockets\WebSocketHandler;
+use Kplaricos\LaravelWebSockets\WebSocketsServiceProvider;
 use Clue\React\Buzz\Browser;
 use GuzzleHttp\Psr7\Request;
 use Mockery;
@@ -16,10 +16,10 @@ use Ratchet\ConnectionInterface;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
-    /** @var \BeyondCode\LaravelWebSockets\WebSockets\WebSocketHandler */
+    /** @var \Kplaricos\LaravelWebSockets\WebSockets\WebSocketHandler */
     protected $pusherServer;
 
-    /** @var \BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager */
+    /** @var \Kplaricos\LaravelWebSockets\WebSockets\Channels\ChannelManager */
     protected $channelManager;
 
     public function setUp(): void
@@ -55,7 +55,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
             ],
         ]);
 
-        include_once __DIR__.'/../database/migrations/create_websockets_statistics_entries_table.php.stub';
+        include_once __DIR__ . '/../database/migrations/create_websockets_statistics_entries_table.php.stub';
 
         (new \CreateWebSocketsStatisticsEntriesTable())->up();
     }
@@ -104,12 +104,12 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
             ],
         ];
 
-        $signature = "{$connection->socketId}:{$channel}:".json_encode($channelData);
+        $signature = "{$connection->socketId}:{$channel}:" . json_encode($channelData);
 
         $message = new Message(json_encode([
             'event' => 'pusher:subscribe',
             'data' => [
-                'auth' => $connection->app->key.':'.hash_hmac('sha256', $signature, $connection->app->secret),
+                'auth' => $connection->app->key . ':' . hash_hmac('sha256', $signature, $connection->app->secret),
                 'channel' => $channel,
                 'channel_data' => json_encode($channelData),
             ],

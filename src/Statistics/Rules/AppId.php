@@ -1,8 +1,8 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Statistics\Rules;
+namespace Kplaricos\LaravelWebSockets\Statistics\Rules;
 
-use BeyondCode\LaravelWebSockets\Apps\AppProvider;
+use Kplaricos\LaravelWebSockets\Apps\AppProvider;
 use Illuminate\Contracts\Validation\Rule;
 
 class AppId implements Rule
