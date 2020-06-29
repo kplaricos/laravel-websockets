@@ -143,6 +143,8 @@ class ChannelTest extends TestCase
 
         $this->pusherServer->onMessage($connection, $message);
 
-        $connection->assertSentEvent('pusher:pong');
+        $connection->assertSentEvent(
+            'pusher:pong',
+        );
     }
 }

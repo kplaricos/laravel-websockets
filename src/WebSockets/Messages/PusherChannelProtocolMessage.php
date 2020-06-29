@@ -43,6 +43,9 @@ class PusherChannelProtocolMessage implements PusherMessage
     {
         $connection->send(json_encode([
             'event' => 'pusher:pong',
+            'data' => [
+                'datetime' => \now()
+            ]
         ]));
     }
 
