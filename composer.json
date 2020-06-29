@@ -1,11 +1,11 @@
 {
-    "name": "beyondcode/laravel-websockets",
+    "name": "kplaricos/laravel-websockets",
     "description": "An easy to use WebSocket server",
     "keywords": [
         "beyondcode",
         "laravel-websockets"
     ],
-    "homepage": "https://github.com/beyondcode/laravel-websockets",
+    "homepage": "https://github.com/kplaricos/laravel-websockets",
     "license": "MIT",
     "authors": [
         {
@@ -45,18 +45,17 @@
     },
     "autoload": {
         "psr-4": {
-            "BeyondCode\\LaravelWebSockets\\": "src"
+            "Kplaricos\\LaravelWebSockets\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BeyondCode\\LaravelWebSockets\\Tests\\": "tests"
+            "Kplaricos\\LaravelWebSockets\\Tests\\": "tests"
         }
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
     },
     "config": {
         "sort-packages": true
@@ -64,10 +63,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "BeyondCode\\LaravelWebSockets\\WebSocketsServiceProvider"
+                "Kplaricos\\LaravelWebSockets\\WebSocketsServiceProvider"
             ],
             "aliases": {
-                "WebSocketRouter": "BeyondCode\\LaravelWebSockets\\Facades\\WebSocketRouter"
+                "WebSocketRouter": "Kplaricos\\LaravelWebSockets\\Facades\\WebSocketRouter"
             }
         }
     }
