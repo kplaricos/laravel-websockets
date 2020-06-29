@@ -1,17 +1,17 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Console;
+namespace Kplaricos\LaravelWebSockets\Console;
 
-use BeyondCode\LaravelWebSockets\Facades\StatisticsLogger;
-use BeyondCode\LaravelWebSockets\Facades\WebSocketsRouter;
-use BeyondCode\LaravelWebSockets\Server\Logger\ConnectionLogger;
-use BeyondCode\LaravelWebSockets\Server\Logger\HttpLogger;
-use BeyondCode\LaravelWebSockets\Server\Logger\WebsocketsLogger;
-use BeyondCode\LaravelWebSockets\Server\WebSocketServerFactory;
-use BeyondCode\LaravelWebSockets\Statistics\DnsResolver;
-use BeyondCode\LaravelWebSockets\Statistics\Logger\HttpStatisticsLogger;
-use BeyondCode\LaravelWebSockets\Statistics\Logger\StatisticsLogger as StatisticsLoggerInterface;
-use BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager;
+use Kplaricos\LaravelWebSockets\Facades\StatisticsLogger;
+use Kplaricos\LaravelWebSockets\Facades\WebSocketsRouter;
+use Kplaricos\LaravelWebSockets\Server\Logger\ConnectionLogger;
+use Kplaricos\LaravelWebSockets\Server\Logger\HttpLogger;
+use Kplaricos\LaravelWebSockets\Server\Logger\WebsocketsLogger;
+use Kplaricos\LaravelWebSockets\Server\WebSocketServerFactory;
+use Kplaricos\LaravelWebSockets\Statistics\DnsResolver;
+use Kplaricos\LaravelWebSockets\Statistics\Logger\HttpStatisticsLogger;
+use Kplaricos\LaravelWebSockets\Statistics\Logger\StatisticsLogger as StatisticsLoggerInterface;
+use Kplaricos\LaravelWebSockets\WebSockets\Channels\ChannelManager;
 use Clue\React\Buzz\Browser;
 use Illuminate\Console\Command;
 use React\Dns\Config\Config as DnsConfig;
@@ -137,7 +137,7 @@ class StartWebSocketServer extends Command
 
     protected function getDnsResolver(): ResolverInterface
     {
-        if (! config('websockets.statistics.perform_dns_lookup')) {
+        if (!config('websockets.statistics.perform_dns_lookup')) {
             return new DnsResolver;
         }
 

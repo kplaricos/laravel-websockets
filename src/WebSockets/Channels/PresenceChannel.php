@@ -1,6 +1,6 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\WebSockets\Channels;
+namespace Kplaricos\LaravelWebSockets\WebSockets\Channels;
 
 use Ratchet\ConnectionInterface;
 use stdClass;
@@ -44,7 +44,7 @@ class PresenceChannel extends Channel
     {
         parent::unsubscribe($connection);
 
-        if (! isset($this->users[$connection->socketId])) {
+        if (!isset($this->users[$connection->socketId])) {
             return;
         }
 

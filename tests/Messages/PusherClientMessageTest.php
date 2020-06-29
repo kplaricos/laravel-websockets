@@ -1,9 +1,9 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Tests\Messages;
+namespace Kplaricos\LaravelWebSockets\Tests\Messages;
 
-use BeyondCode\LaravelWebSockets\Tests\Mocks\Message;
-use BeyondCode\LaravelWebSockets\Tests\TestCase;
+use Kplaricos\LaravelWebSockets\Tests\Mocks\Message;
+use Kplaricos\LaravelWebSockets\Tests\TestCase;
 
 class PusherClientMessageTest extends TestCase
 {

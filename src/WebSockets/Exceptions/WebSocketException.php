@@ -1,6 +1,6 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\WebSockets\Exceptions;
+namespace Kplaricos\LaravelWebSockets\WebSockets\Exceptions;
 
 use Exception;
 

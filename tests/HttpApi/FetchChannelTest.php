@@ -1,10 +1,10 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Tests\HttpApi;
+namespace Kplaricos\LaravelWebSockets\Tests\HttpApi;
 
-use BeyondCode\LaravelWebSockets\HttpApi\Controllers\FetchChannelController;
-use BeyondCode\LaravelWebSockets\Tests\Mocks\Connection;
-use BeyondCode\LaravelWebSockets\Tests\TestCase;
+use Kplaricos\LaravelWebSockets\HttpApi\Controllers\FetchChannelController;
+use Kplaricos\LaravelWebSockets\Tests\Mocks\Connection;
+use Kplaricos\LaravelWebSockets\Tests\TestCase;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\JsonResponse;
 use Pusher\Pusher;
@@ -28,7 +28,7 @@ class FetchChannelTest extends TestCase
 
         $queryString = Pusher::build_auth_query_string('TestKey', 'InvalidSecret', 'GET', $requestPath);
 
-        $request = new Request('GET', "{$requestPath}?{$queryString}&".http_build_query($routeParams));
+        $request = new Request('GET', "{$requestPath}?{$queryString}&" . http_build_query($routeParams));
 
         $controller = app(FetchChannelController::class);
 
@@ -51,7 +51,7 @@ class FetchChannelTest extends TestCase
 
         $queryString = Pusher::build_auth_query_string('TestKey', 'TestSecret', 'GET', $requestPath);
 
-        $request = new Request('GET', "{$requestPath}?{$queryString}&".http_build_query($routeParams));
+        $request = new Request('GET', "{$requestPath}?{$queryString}&" . http_build_query($routeParams));
 
         $controller = app(FetchChannelController::class);
 
@@ -84,7 +84,7 @@ class FetchChannelTest extends TestCase
 
         $queryString = Pusher::build_auth_query_string('TestKey', 'TestSecret', 'GET', $requestPath);
 
-        $request = new Request('GET', "{$requestPath}?{$queryString}&".http_build_query($routeParams));
+        $request = new Request('GET', "{$requestPath}?{$queryString}&" . http_build_query($routeParams));
 
         $controller = app(FetchChannelController::class);
 

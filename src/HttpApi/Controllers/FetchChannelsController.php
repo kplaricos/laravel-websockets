@@ -1,6 +1,6 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\HttpApi\Controllers;
+namespace Kplaricos\LaravelWebSockets\HttpApi\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -16,7 +16,7 @@ class FetchChannelsController extends Controller
         if ($request->has('info')) {
             $attributes = explode(',', trim($request->info));
 
-            if (in_array('user_count', $attributes) && ! Str::startsWith($request->filter_by_prefix, 'presence-')) {
+            if (in_array('user_count', $attributes) && !Str::startsWith($request->filter_by_prefix, 'presence-')) {
                 throw new HttpException(400, 'Request must be limited to presence channels in order to fetch user_count');
             }
         }

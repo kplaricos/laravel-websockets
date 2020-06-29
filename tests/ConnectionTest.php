@@ -1,11 +1,11 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Tests;
+namespace Kplaricos\LaravelWebSockets\Tests;
 
-use BeyondCode\LaravelWebSockets\Apps\App;
-use BeyondCode\LaravelWebSockets\Tests\Mocks\Message;
-use BeyondCode\LaravelWebSockets\WebSockets\Exceptions\ConnectionsOverCapacity;
-use BeyondCode\LaravelWebSockets\WebSockets\Exceptions\UnknownAppKey;
+use Kplaricos\LaravelWebSockets\Apps\App;
+use Kplaricos\LaravelWebSockets\Tests\Mocks\Message;
+use Kplaricos\LaravelWebSockets\WebSockets\Exceptions\ConnectionsOverCapacity;
+use Kplaricos\LaravelWebSockets\WebSockets\Exceptions\UnknownAppKey;
 
 class ConnectionTest extends TestCase
 {

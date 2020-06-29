@@ -1,6 +1,6 @@
 <?php
 
-namespace BeyondCode\LaravelWebSockets\Tests\Mocks;
+namespace Kplaricos\LaravelWebSockets\Tests\Mocks;
 
 class Message extends \Ratchet\RFC6455\Messaging\Message
 {
